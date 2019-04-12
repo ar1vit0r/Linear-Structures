@@ -1,12 +1,13 @@
+//typedef elem int;
+#define elem int
 
-//#include "ls.h" ou "le.h"
 /** Descritor da pilha
   */
 struct pilha{
    /* seu código aqui, deve usar uma lista */
+  int ultimo;
+  elem * arm;
 };
-
-// typedef elem int;
 
 /** Cria uma pilha
  * @return  um descritor ou NULL
@@ -43,6 +44,7 @@ int push(struct pilha * p, int val);
  * @return 1 se vazia, 0 se não
  */
  int vazia(struct pilha *p);
+
 /** Desaloca toda a pilha
   * @param p descritor da pilha
   */

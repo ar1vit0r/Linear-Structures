@@ -1,9 +1,11 @@
 
-//#include "ls.h" ou "le.h"
+#include "le.h"
 /** Descritor da fila
   */
 struct fila{
    /* seu código aqui, deve usar uma lista */
+  int ultimo;
+  elem * arm;
 };
 
 // typedef elem int;
