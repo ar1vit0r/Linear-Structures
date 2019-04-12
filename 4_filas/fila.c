@@ -15,7 +15,7 @@ struct fila * create(){
 int makenull(struct fila * f){ // Apaga todos elementos da fila?
         if( !vazia(f)){
 			for(int i = f->ultimo; i > 0; i--){
-                free( &(p->arm[i]) );  //free no endereço onde 'e o atual topo.
+                free( &(f->arm[i]) );  //free no endereço onde 'e o atual topo.
             }
 		return 1;
 		}
@@ -46,8 +46,8 @@ int enqueue(struct fila * f, int val){
  }
 
 void destroy(struct fila * f){
-        if( !vazia(p))
-            makenull(p);
+        if( !vazia(f))
+            makenull(f);
 
     free(f);
     return;

@@ -1,5 +1,6 @@
+#define elem int
+//#include "ls.h"
 
-#include "le.h"
 /** Descritor da fila
   */
 struct fila{
@@ -7,8 +8,6 @@ struct fila{
   int ultimo;
   elem * arm;
 };
-
-// typedef elem int;
 
 /** Cria uma fila
  * @return  um descritor ou NULL
