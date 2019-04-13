@@ -110,5 +110,5 @@ void destroy(struct list *desc){
 			return;
 		}
 		printf("Lista Vazia \n");
-		
+		return;
 }
