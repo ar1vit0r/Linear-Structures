@@ -17,14 +17,14 @@ struct llist * create_l(){
 }
 
 elem * create_node(int val){
-    elem *first;
-        first = malloc(sizeof(elem));
-        if( first == NULL)
+    elem *new;
+        new = malloc(sizeof(elem));
+        if( new == NULL)
             return NULL;
         
-        first->val = val;
-        first->next = NULL;
-    return first;
+        new->val = val;
+        new->next = NULL;
+    return new;
  }  
 
 int insert_l(struct llist *desc, elem * prev, elem * item){
@@ -34,11 +34,23 @@ int insert_l(struct llist *desc, elem * prev, elem * item){
         return 0;
         }
         else{
-            if( prev == NULL){ 
+            if( prev == NULL && desc->tam == 0 ){ 
                 desc->tam += 1;
                 elem *new;
                 new = create_node(item->val);
                 desc->cabeca = new;
+            return 1;
+            }
+            if( prev == NULL) {
+                elem *cabeca;
+                elem *new;
+
+                desc->tam += 1;
+                new = create_node(item->val);
+
+                cabeca = desc->cabeca;
+                desc->cabeca = new;
+                new->next = cabeca;
             return 1;
             }
             else{
@@ -46,8 +58,7 @@ int insert_l(struct llist *desc, elem * prev, elem * item){
                 elem *new;
 
                 desc->tam += 1;
-                new = malloc( sizeof( elem ));
-                new->val = item->val;
+                new = create_node(item->val);
 
                 temp = prev->next;
                 prev->next = new;
@@ -132,51 +143,17 @@ elem * locate_l(struct llist *desc, elem * prev, int val){
         
         if( prev == NULL)
             temp = desc->cabeca;
-        else{
+        else
             temp = prev->next;
-            while( temp->val != val && temp->next != NULL)
-                temp  = temp->next;
-        }
 
-            if( temp->val == val)
-                return temp;
-            else
-                return NULL;
-}
-/*
-elem * locate_l(struct llist *desc, elem * prev, int val){
-    elem *temp;
-        temp = prev->next;
-        while( temp->val != val && temp->next != NULL )
+        while( temp->val != val && temp->next != NULL)
             temp  = temp->next;
-        
+
         if( temp->val == val)
             return temp;
-
-return NULL;
+        else
+            return NULL;
 }
- */
-/*
-    if( prev == NULL){
-            temp = desc->cabeca;
-            for( int cont =1; cont < desc->tam; cont++ ){
-                temp  = temp->next;
-             
-            if( temp->val == val)
-                return temp;
-            }
-        return NULL;
-        }
-        else{
-            temp = prev->next;
-            while( temp->val != val && temp->next != NULL )
-                temp  = temp->next;
-            
-            if( temp->val == val)
-                return temp;
-            else
-                return NULL;
- */
 
 int length_l(struct llist *desc){
         return desc->tam;
