@@ -12,6 +12,7 @@ struct llist * create_l(){
             return NULL;
 
         desc->cabeca = NULL;
+        desc->tail = NULL;
         desc->tam = 0;
     return desc;        
 }
@@ -29,7 +30,7 @@ elem * create_node(int val){
 
 int insert_l(struct llist *desc, elem * prev, elem * item){
 
-        if( desc == NULL ){ // se desc for nulo, nao alocou ou n tem moria
+        if( desc == NULL ){ // se desc for nulo, nao alocou ou n tem memoria
             printf("Erro, Sem Memoria \n");
         return 0;
         }
@@ -39,18 +40,21 @@ int insert_l(struct llist *desc, elem * prev, elem * item){
                 elem *new;
                 new = create_node(item->val);
                 desc->cabeca = new;
+                desc->tail = new;
             return 1;
             }
             if( prev == NULL) {
-                elem *cabeca;
+                elem *excabeca;
                 elem *new;
 
                 desc->tam += 1;
                 new = create_node(item->val);
 
-                cabeca = desc->cabeca;
+                excabeca = desc->cabeca;
                 desc->cabeca = new;
-                new->next = cabeca;
+                new->next = excabeca;
+                if(desc->tam == 2)
+                    desc->tail = excabeca;
             return 1;
             }
             else{
@@ -63,6 +67,7 @@ int insert_l(struct llist *desc, elem * prev, elem * item){
                 temp = prev->next;
                 prev->next = new;
                 new->next = temp;
+                desc->tail = get_l( desc, length_l(desc) );
             return 1;
             }
         }  
@@ -103,19 +108,20 @@ elem * get_l(struct llist *desc, int pos){
             }
             else{
                 int j;
-                elem *temp;
+                elem * count;
+                count = desc->cabeca;
 
-                temp = desc->cabeca;
-                for( j = 1; j < pos;  j++){
-                    temp = temp->next;
+                j = pos;
+                while(  j > 1 ){
+                    if( count == NULL){
+                        printf("Erro, Elemento de indice %d nao existe \n",j);
+                    return NULL;
+                    }
+
+                    count = count->next;
+                    j--;
                 }
-                if( temp == NULL){
-                    printf("Erro, Elemento de indice %d nao existe \n",j);
-                return NULL;
-                }
-                else{
-                    return temp;  
-                }
+            return count;                 
             }
         }
 return NULL;

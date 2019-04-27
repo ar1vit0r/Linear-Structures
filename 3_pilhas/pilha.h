@@ -1,12 +1,10 @@
 //typedef elem int;
-#define elem int
 
 /** Descritor da pilha
   */
 struct pilha{
    /* seu código aqui, deve usar uma lista */
-  int ultimo;
-  elem * arm;
+  struct llist pilha;
 };
 
 /** Cria uma pilha

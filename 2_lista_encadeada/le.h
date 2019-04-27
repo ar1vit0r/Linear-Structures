@@ -16,6 +16,7 @@ typedef struct elem{
 struct llist{
   /* your code here! */
   elem * cabeca;
+  elem * tail;
   int tam;
 };
 

@@ -10,7 +10,7 @@ pilha.o: pilha.c
 	
 
 # Supondo que está usando a implementação de lista implementada anteriormente
-teste: ls.o pilha.o teste.c
+teste: le.o pilha.o teste.c
 
 clean:
 	rm -f pilha.o teste
