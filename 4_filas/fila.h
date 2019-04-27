@@ -5,7 +5,7 @@
   */
 struct fila{
    /* seu código aqui, deve usar uma lista */
-  int ultimo; // tentar usar uma struct list aqui, pra n usar ls.h
+  int ultimo; // usar uma struct list aqui, trocar nome de algumas funções...
   elem * arm;
 };
 
