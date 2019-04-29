@@ -4,7 +4,7 @@
   */
 struct pilha{
    /* seu código aqui, deve usar uma lista */
-  struct llist pilha;
+  struct llist * pilha;
 };
 
 /** Cria uma pilha

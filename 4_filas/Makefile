@@ -10,7 +10,7 @@ fila.o: fila.c
 	
 
 # Supondo que está usando a implementação de lista implementada anteriormente
-teste: ls.o fila.o teste.c
+teste: le.o fila.o teste.c
 
 clean:
 	rm -f fila.o teste

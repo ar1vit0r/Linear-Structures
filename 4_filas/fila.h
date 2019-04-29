@@ -1,12 +1,10 @@
-#define elem int
-//#include "ls.h"
+//#define elem int
 
 /** Descritor da fila
   */
 struct fila{
    /* seu código aqui, deve usar uma lista */
-  int ultimo; // usar uma struct list aqui, trocar nome de algumas funções...
-  elem * arm;
+  struct llist * fila;
 };
 
 /** Cria uma fila

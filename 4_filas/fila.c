@@ -3,19 +3,13 @@
 #include "fila.h"
 
 struct fila * create(){
-    struct fila *desc;
-		if( (desc = malloc(sizeof(struct fila))) == NULL )
-			return NULL;
-
-		desc->ultimo = 0; 
-        desc->arm = NULL;
-    return desc;
+    return create_l();   
 }
 
 int makenull(struct fila * f){ // Apaga todos elementos da fila?
         if( !vazia(f)){
-			for(int i = f->ultimo; i > 0; i--){
-                free( &(f->arm[i]) );  //free no endereço onde 'e o atual topo.
+			while( f->fila->tam > 0 ){
+                delete_l(f,f->cabeca);
             }
 		return 1;
 		}
@@ -25,22 +19,21 @@ int makenull(struct fila * f){ // Apaga todos elementos da fila?
 
 int dequeue(struct fila * f){ // Retorna o elemento mais antigo da fila ou zero se não existir?
          if( !vazia(f)){
-			removel(f,f->ultimo); // == pop?
-		return 1;
+		    return (get_l(f,f->cabeca)->val);
 		}
         else
 		    return 0;
 }
 
 int enqueue(struct fila * f, int val){
-         return insert(f,f->ultimo,val);
+         return insert_l(f, f->tail , val);
 }
 
- int vazia(struct fila * f){
-        if( f->ultimo > 0)
+int vazia(struct fila * f){
+        if( lenght_l(f) > 0)
             return 0;
         else{
-            printf("Pilha Vazia \n");
+            printf("Fila Vazia \n");
         return 1;
         }
  }

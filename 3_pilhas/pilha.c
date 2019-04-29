@@ -3,19 +3,13 @@
 #include "pilha.h"
 
 struct pilha * create(){
-    struct pilha *desc;
-		if( (desc = malloc(sizeof(struct pilha))) == NULL )
-			return NULL;
-
-		desc->ultimo = 0; 
-        desc->arm = NULL;
-    return desc;
+    return create_l();  
 }
 
 int makenull(struct pilha * p){
         if( !vazia(p)){
-			for(int i = p->ultimo; i > 0; i--){
-                free( &(p->arm[i]) );  //free no endereço onde 'e o atual topo.
+			while( lenght_l(p) > 0 ){
+                delete_l(p,p->tail);
             }
 		return 1;
 		}
@@ -24,19 +18,23 @@ int makenull(struct pilha * p){
 }
 
 int top(struct pilha * p){
-        return get(p,p->ultimo);
+        return p->tail;
 }
 
 int pop(struct pilha * p){
-        return removel(p,p->ultimo);
+        int *temp; 
+
+        temp = (get_l(p, length_l(p)))->val ;
+        delete_l(p,p->tail);
+        return temp;
 }
 
 int push(struct pilha * p, int val){
-        return insert(p,p->ultimo,val);
+        return insert_l(p, p->tail , val);
 }
 
  int vazia(struct pilha *p){
-        if( p->ultimo > 0)
+        if( p->tam > 0)
             return 0;
         else{
             printf("Pilha Vazia \n");
