@@ -8,7 +8,7 @@ all: teste
 
 le.o: le.c
 
-teste: le.o teste.c
+teste: le.o -lm teste.c
 
 clean:
 	rm -f le.o teste

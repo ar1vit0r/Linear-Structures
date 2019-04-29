@@ -8,7 +8,7 @@ all: teste
 
 ls.o: ls.c
 
-teste: ls.o teste.c
+teste: ls.o -lm teste.c
 
 clean:
 	rm -f ls.o teste
