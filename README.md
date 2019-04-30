@@ -41,15 +41,15 @@ Cada implementação será cobrada na aula prática subsequente à aula prática
 
 ## Perguntas
 
-1. Como os diferentes _Makefiles_ sabem onde encontrar a biblioteca _simplegrade.h_?
-2. É uma boa ideia implementar todas as funções na própria _simplegrade.h_? Dê uma razão contra e uma a favor.
-3. Como está sendo contabilizada a nota?
-3. Para que serve a _flag_ **-Wall**?
-4. Para que serve a _flag_ **-O1**?
-5. Para que serve a _flag_ **-g**?
-6. Para que serve a _flag_ **-I**?
-7. Para que o _.PHONY_ no _Makefile_?
-8. O que precisa ser mudado nos Makefiles de pilha e fila para usar as listas implementadas anteriormente? 
+0. Como os diferentes _Makefiles_ sabem onde encontrar a biblioteca _simplegrade.h_?
+1. É uma boa ideia implementar todas as funções na própria _simplegrade.h_? Dê uma razão contra e uma a favor.
+2. Como está sendo contabilizada a nota?
+3. Para que serve a _flag_ **-Wall**? ativa todos os warnings do compilador
+4. Para que serve a _flag_ **-O1**? optimização do tamanho do codigo e do tempo de execução
+5. Para que serve a _flag_ **-g**? gera as informações padrão para o debuguer
+6. Para que serve a _flag_ **-I**? adiciona o diretório de inclusão de arquivos .h (headers)
+7. Para que o _.PHONY_ no _Makefile_? (.phony target) é para não dar conflito com arquivos que sejam criados com mesmo nome (por exemplo, se existisse um arquivo chamado all.c ou clean.c)
+8. O que precisa ser mudado nos Makefiles de pilha e fila para usar as listas implementadas anteriormente? também gostaria de saber ://
 
 ## Referências
 
