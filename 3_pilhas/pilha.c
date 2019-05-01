@@ -3,13 +3,17 @@
 #include "pilha.h"
 
 struct pilha * create(){
-    return create_l();  
+    struct pilha *temp;
+        temp->pilha = create_l();
+        return temp;  
 }
 
 int makenull(struct pilha * p){
-        if( !vazia(p)){
-			while( lenght_l(p) > 0 ){
-                delete_l(p,p->tail);
+    struct pilha *temp;
+        temp = &(p->pilha);
+        if( !vazia(temp)){
+			while( temp->tam > 0 ){
+                delete_l(temp,temp->tail);
             }
 		return 1;
 		}
@@ -18,23 +22,34 @@ int makenull(struct pilha * p){
 }
 
 int top(struct pilha * p){
-        return p->tail;
+    struct pilha *temp;
+        temp = &(p->pilha);
+        temp = &(temp->tail);
+        return temp->val;
 }
 
 int pop(struct pilha * p){
-        int *temp; 
+    struct pilha *temp;
+        int val;
 
-        temp = (get_l(p, length_l(p)))->val ;
-        delete_l(p,p->tail);
-        return temp;
+        temp = &(p->pilha);
+        temp = &(temp->tail)
+        val = temp->val;
+        
+        delete_l(p,temp);
+        return val;
 }
 
 int push(struct pilha * p, int val){
-        return insert_l(p, p->tail , val);
+    struct pilha *temp;
+        temp = &(p->pilha);
+        return insert_l(p, temp->tail , val);
 }
 
  int vazia(struct pilha *p){
-        if( p->tam > 0)
+    struct pilha *temp;
+        temp = &(p->pilha);
+        if( temp->tam > 0)
             return 0;
         else{
             printf("Pilha Vazia \n");
@@ -43,9 +58,11 @@ int push(struct pilha * p, int val){
 }
 
 void destroy(struct pilha * p){
-    if( !vazia(p))
-        makenull(p);
+    struct pilha *temp;
+        temp = &(p->pilha);
+    if( !vazia(temp))
+        makenull(temp);
 
-    free(p);
+    free(temp);
     return;
 }

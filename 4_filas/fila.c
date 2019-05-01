@@ -3,13 +3,17 @@
 #include "fila.h"
 
 struct fila * create(){
-    return create_l();   
+    struct fila *temp;
+        temp->fila = create_l();
+        return temp;   
 }
 
-int makenull(struct fila * f){ // Apaga todos elementos da fila?
-        if( !vazia(f)){
-			while( f->fila->tam > 0 ){
-                delete_l(f,f->cabeca);
+int makenull(struct fila * f){ 
+    struct fila *temp;
+        temp = &(f->fila);
+        if( !vazia(temp)){
+			while( temp->tam > 0 ){
+                delete_l(temp,temp->cabeca);
             }
 		return 1;
 		}
@@ -17,20 +21,27 @@ int makenull(struct fila * f){ // Apaga todos elementos da fila?
 		    return 0;
 }
 
-int dequeue(struct fila * f){ // Retorna o elemento mais antigo da fila ou zero se não existir?
-         if( !vazia(f)){
-		    return (get_l(f,f->cabeca)->val);
+int dequeue(struct fila * f){ 
+    struct fila *temp;
+        temp = &(f->fila);
+        temp = &(temp->cabeca)
+        if( !vazia(temp)){
+		    return temp->val;
 		}
         else
 		    return 0;
 }
 
 int enqueue(struct fila * f, int val){
-         return insert_l(f, f->tail , val);
+    struct fila *temp;
+        temp = &(f->fila);
+        return insert_l(temp, temp->tail , val);
 }
 
 int vazia(struct fila * f){
-        if( lenght_l(f) > 0)
+    struct fila *temp;
+        temp = &(f->fila);
+        if( temp->tam > 0)
             return 0;
         else{
             printf("Fila Vazia \n");
@@ -39,9 +50,11 @@ int vazia(struct fila * f){
  }
 
 void destroy(struct fila * f){
-        if( !vazia(f))
-            makenull(f);
+    struct fila *temp;
+        temp = &(f->fila);
+        if( !vazia(temp))
+            makenull(temp);
 
-    free(f);
+    free(temp);
     return;
 }
