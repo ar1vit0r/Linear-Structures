@@ -10,8 +10,8 @@ pilha.o: pilha.c
 	
 
 # Supondo que está usando a implementação de lista implementada anteriormente
-#teste: le.o pilha.o teste.c
-teste: $(cc) $(CFLAGS) le.o pilha.o teste.c -o teste -lm
+teste: pilha.o teste.c
+#teste: $(cc) $(CFLAGS) le.o pilha.o teste.c -o teste -lm
 
 clean:
 	rm -f pilha.o teste
