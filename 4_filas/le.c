@@ -1,8 +1,9 @@
 #include "le.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
-/* Aqui devem ser implementadas as funÃ§Ãµes definidas em le.h */
+/* Aqui devem ser implementadas as funções definidas em le.h */
 
 struct llist * create_l(){
     struct llist *desc;
