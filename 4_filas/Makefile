@@ -7,10 +7,9 @@ all: teste
 	./teste
 
 fila.o: fila.c
-	
 
 # Supondo que está usando a implementação de lista implementada anteriormente
-teste: fila.o teste.c
+teste: le.o fila.o -lm teste.c
 #teste: $(cc) $(CFLAGS) le.o fila.o teste.c -o teste -lm
 
 clean:
