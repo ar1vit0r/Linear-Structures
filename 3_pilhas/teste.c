@@ -42,7 +42,7 @@ void test_push(){
 
 void test_pop(){
 
-	int i, val;
+	int i;
 	struct pilha * p = create();
 
 
