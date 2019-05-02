@@ -3,7 +3,7 @@
 #include "pilha.h"
 
 struct pilha * create(){
-    struct pilha *p;
+    struct pilha *p = NULL;
         p->pilha = create_l();
         return p;   
 }
@@ -23,7 +23,7 @@ int makenull(struct pilha * p){
 
 int top(struct pilha * p){
     struct llist * temp;
-        elem *aux;
+        elem *aux = NULL;
         temp = p->pilha;
         aux = temp->tail;
         return aux->val;
@@ -37,7 +37,7 @@ int pop(struct pilha * p){
 
 int push(struct pilha * p, int val){
     struct llist * temp;
-        elem *aux;
+	    elem *aux = NULL;
 	    aux->next = NULL;
 	    aux->val = val;
         temp = p->pilha;
