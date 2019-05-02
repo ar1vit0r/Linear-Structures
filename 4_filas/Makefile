@@ -9,9 +9,9 @@ all: teste
 fila.o: fila.c
 	
 
-# Supondo que est√° usando a implementa√ß√£o de lista implementada anteriormente
-#teste: le.o fila.o teste.c
-teste: $(cc) $(CFLAGS) le.o fila.o teste.c -o teste -lm
+# Supondo que est· usando a implementaÁ„o de lista implementada anteriormente
+teste: fila.o teste.c
+#teste: $(cc) $(CFLAGS) le.o fila.o teste.c -o teste -lm
 
 clean:
 	rm -f fila.o teste
