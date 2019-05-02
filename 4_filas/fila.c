@@ -3,7 +3,7 @@
 #include "fila.h"
 
 struct fila * create(){
-    struct fila *f;
+    struct fila *f = NULL;
         f->fila = create_l();
         return f;  
 }
@@ -35,7 +35,7 @@ int dequeue(struct fila * f){
 
 int enqueue(struct fila * f, int val){
     struct llist *temp;
-        elem *aux;
+        elem *aux = NULL;
         aux->val = val;
         aux->next = NULL;
         temp = f->fila;
@@ -56,7 +56,6 @@ int vazia(struct fila * f){
 void destroy(struct fila * f){
       if( !vazia(f))
             makenull(f);
-
     free(f);
     return;
 }
