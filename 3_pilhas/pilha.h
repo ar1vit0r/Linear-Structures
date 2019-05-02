@@ -1,3 +1,5 @@
+#include "le.h"
+
 //typedef elem int;
 
 /** Descritor da pilha
