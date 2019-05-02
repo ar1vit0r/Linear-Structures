@@ -13,7 +13,7 @@ int makenull(struct fila * f){
         temp = f->fila;
         if( !vazia(f)){
 			while( temp->tam > 0 ){
-                delete_l(temp,NULL); // removendo a cabeÃ§a
+                delete_l(temp,NULL); // removendo a cabeça
             }
 		return 1;
 		}
@@ -54,11 +54,9 @@ int vazia(struct fila * f){
  }
 
 void destroy(struct fila * f){
-    struct fila *temp;
-        temp = &(f->fila);
-        if( !vazia(temp))
-            makenull(temp);
+      if( !vazia(f))
+            makenull(f);
 
-    free(temp);
+    free(f);
     return;
 }
