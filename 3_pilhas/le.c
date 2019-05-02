@@ -1,6 +1,7 @@
 #include "le.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /* Aqui devem ser implementadas as funções definidas em le.h */
 
