@@ -8,9 +8,8 @@ all: teste
 
 pilha.o: pilha.c 
 	
-
 # Supondo que está usando a implementação de lista implementada anteriormente
-teste: pilha.o teste.c
+teste: le.o pilha.o -lm teste.c
 #teste: $(cc) $(CFLAGS) le.o pilha.o teste.c -o teste -lm
 
 clean:
