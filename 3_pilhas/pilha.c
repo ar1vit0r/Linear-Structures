@@ -37,8 +37,11 @@ int pop(struct pilha * p){
 
 int push(struct pilha * p, int val){
     struct llist * temp;
+        elem *aux;
+	    aux->next = NULL;
+	    aux->val = val;
         temp = p->pilha;
-        return insert_l(temp, temp->tail, val);
+        return insert_l(temp, temp->tail, aux);
 }
 
  int vazia(struct pilha *p){
