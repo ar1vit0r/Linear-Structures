@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-/* Aqui devem ser implementadas as funÃ§Ãµes definidas em le.h */
+/* Aqui devem ser implementadas as funções definidas em le.h */
 
 struct llist * create_l(){
     struct llist *desc;
@@ -81,6 +81,13 @@ int delete_l(struct llist *desc, elem * prev){
         return 0;
         }
         else{
+            if( prev == NULL){
+                desc->tam -= 1;
+                del = desc->cabeca;
+                desc->cabeca = del->next;
+                free(del);
+            return 1;
+            }
             if( prev->next == NULL){
                 printf("Erro, Proximo e Nulo \n");
             return 0;
