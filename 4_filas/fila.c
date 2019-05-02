@@ -3,17 +3,17 @@
 #include "fila.h"
 
 struct fila * create(){
-    struct fila *temp;
-        temp->fila = create_l();
-        return temp;   
+    struct fila *f;
+        f->fila = create_l();
+        return f;  
 }
 
 int makenull(struct fila * f){ 
-    struct fila *temp;
-        temp = &(f->fila);
-        if( !vazia(temp)){
+    struct llist * temp;
+        temp = f->fila;
+        if( !vazia(f)){
 			while( temp->tam > 0 ){
-                delete_l(temp,temp->cabeca);
+                delete_l(temp,NULL); // removendo a cabeça
             }
 		return 1;
 		}
@@ -22,25 +22,29 @@ int makenull(struct fila * f){
 }
 
 int dequeue(struct fila * f){ 
-    struct fila *temp;
-        temp = &(f->fila);
-        temp = &(temp->cabeca)
-        if( !vazia(temp)){
-		    return temp->val;
+    struct llist * temp;
+        elem *head;
+        temp = f->fila;
+         if( !vazia(f)){
+            head = temp->cabeca; // ou get_l(temp,1);
+		    return head->val;
 		}
         else
 		    return 0;
 }
 
 int enqueue(struct fila * f, int val){
-    struct fila *temp;
-        temp = &(f->fila);
-        return insert_l(temp, temp->tail , val);
+    struct llist *temp;
+        elem *aux;
+        aux->val = val;
+        aux->next = NULL;
+        temp = f->fila;
+        return insert_l(temp, temp->tail , aux);
 }
 
 int vazia(struct fila * f){
-    struct fila *temp;
-        temp = &(f->fila);
+    struct llist *temp;
+        temp = f->fila;
         if( temp->tam > 0)
             return 0;
         else{
