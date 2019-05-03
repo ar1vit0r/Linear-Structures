@@ -49,7 +49,7 @@ Cada implementação será cobrada na aula prática subsequente à aula prática
 5. Para que serve a _flag_ **-g**? gera as informações padrão para o debuguer
 6. Para que serve a _flag_ **-I**? adiciona o diretório de inclusão de arquivos .h (headers)
 7. Para que o _.PHONY_ no _Makefile_? (.phony target) é para não dar conflito com arquivos que sejam criados com mesmo nome (por exemplo, se existisse um arquivo chamado all.c ou clean.c)
-8. O que precisa ser mudado nos Makefiles de pilha e fila para usar as listas implementadas anteriormente? adicionar ao arquivo make a linha: ls.o(ou le.o) e -lm ao teste: , e remover as vars declaradas e não utilizadas nos testes
+8. O que precisa ser mudado nos Makefiles de pilha e fila para usar as listas implementadas anteriormente? adicionar ao arquivo make a linha: ls.o(ou le.o) e -lm ao teste: , ps: e remover as vars declaradas e não utilizadas nos arquivos teste.c
 
 ## Referências
 
