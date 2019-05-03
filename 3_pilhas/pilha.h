@@ -1,4 +1,4 @@
-#include "le.h"
+#include "ls.h"
 
 //typedef elem int;
 
@@ -6,7 +6,7 @@
   */
 struct pilha{
    /* seu código aqui, deve usar uma lista */
-  struct llist * pilha;
+  struct list * pilha;
 };
 
 /** Cria uma pilha
