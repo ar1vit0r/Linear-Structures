@@ -44,9 +44,7 @@ int enqueue(struct fila * f, int val){
         elem *aux;
         int key;
         temp = f->fila;
-        aux = malloc(sizeof(elem));
-        aux->val = val;
-        aux->next = NULL;
+        aux = create_node(val);
         key = insert_l(temp, temp->tail , aux);
         free(aux);
         return key;
