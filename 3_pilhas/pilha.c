@@ -3,16 +3,19 @@
 #include "pilha.h"
 
 struct pilha * create(){
-    struct pilha *p = NULL;
-        p->pilha = create_l();
-        return p;   
+    struct pilha *desc;
+        desc = malloc(sizeof(struct pilha));
+        if(desc == NULL)
+            return NULL;
+		desc->pilha = create_l(5); // tamanho tem que ser conhecido de antemão
+    return desc;
 }
 
 int makenull(struct pilha * p){
-    struct llist * temp;
+    struct list *temp;
         temp = p->pilha;
-        if( !vazia(p) ){
-			while( temp->tam > 0 ){
+        if( !vazia(p)){
+			while(temp->ultimo > 0){
                 pop(p);
             }
 		return 1;
@@ -22,32 +25,27 @@ int makenull(struct pilha * p){
 }
 
 int top(struct pilha * p){
-    struct llist * temp;
-        elem *aux = NULL;
+    struct list *temp;
         temp = p->pilha;
-        aux = temp->tail;
-        return aux->val;
+        return get_l(temp,temp->ultimo);
 }
 
 int pop(struct pilha * p){
-    struct llist * temp;
+    struct list *temp;
         temp = p->pilha;
-        return delete_l( temp, get_l(temp,(temp->tam)-1) );
+        return removel_l(temp,temp->ultimo);
 }
 
 int push(struct pilha * p, int val){
-    struct llist * temp;
-	    elem *aux = NULL;
-	    aux->next = NULL;
-	    aux->val = val;
+    struct list *temp;
         temp = p->pilha;
-        return insert_l(temp, temp->tail, aux);
+        return insert_l(temp,temp->ultimo+1,val); //inserir depois do ultimo rsrs
 }
 
  int vazia(struct pilha *p){
-     struct llist * temp;
+    struct list *temp;
         temp = p->pilha;
-        if( temp->tam > 0)
+        if( length_l(temp) > 0)
             return 0;
         else{
             printf("Pilha Vazia \n");
@@ -59,6 +57,6 @@ void destroy(struct pilha * p){
         if( !vazia(p))
             makenull(p);
 
-    free(p);
-    return;
+        free(p);
+        return;
 }
